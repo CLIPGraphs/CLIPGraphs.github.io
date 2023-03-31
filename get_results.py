@@ -20,7 +20,7 @@ def main(image_model_type, lang_model_type, model_name, loss, split):
     relationships = np.load('all_obj_rel.npy', allow_pickle=True).item()
     model = GCN(input_dim, output_dim).to("cuda")
     # model = DataParallel(model)
-    model.load_state_dict(torch.load('model.pth'))
+    model.load_state_dict(torch.load('model2.pth'))
 
     color_dict = {
         "bathroom": "#6495ED",
@@ -105,7 +105,7 @@ def main(image_model_type, lang_model_type, model_name, loss, split):
     # room_embeddings = torch.stack([val_emb[_] for _ in range(len(rooms))])
 
     room_dict = np.load(
-        f'output_room_embeddings/global_best_{image_model_type_parse}_{lang_model_type_parse}_room_embedding.npy', allow_pickle=True).item()
+        f'output_room_embeddings/hybrid_{image_model_type_parse}_{lang_model_type_parse}_room_embedding.npy', allow_pickle=True).item()
 
     room_embeddings = []
     room_names = []
