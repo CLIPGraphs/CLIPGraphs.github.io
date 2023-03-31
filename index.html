@@ -34,7 +34,7 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title"> Housekeep: Tidying Virtual Households using Commonsense Reasoning </h1>
+                        <h1 class="title is-1 publication-title"> CLIPGraphs: Multimodal graph networks to infer object-room affinities for scene rearrangement </h1>
                         <div class="is-size-5 publication-authors">
                             <span class="author-block">
               <a href="https://yashkant.github.io/">Yash Kant</a><sup>1,2</sup>,</span>
@@ -161,13 +161,11 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content">
                         <p>
-                            We introduce <span class="dnerf">Housekeep</span>, a benchmark to evaluate commonsense reasoning in the home for embodied AI. In <span class="dnerf">Housekeep</span>, an embodied agent must tidy a house by rearranging misplaced
-                            objects without explicit instructions specifying which objects need to be rearranged. Instead, the agent must learn from and is evaluated against human preferences of which objects belong where in a tidy house. Specifically,
-                            <b>we collect a dataset of where humans typically place objects in tidy and untidy houses constituting 1799 objects, 268 object categories, 585 placements, and 105 rooms.</b>
+                           We propose a multimodal learning approach to infer human preferences of a <it>tidy room</it>.
+This is crucial for robotic scene rearrangement problems, where much of the prior work has centered around assuming rearrangement goals to be concretely specified.
                         </p>
-                        <p>
-                            Next, we propose a modular baseline approach for <span class="dnerf">Housekeep</span> that integrates planning, exploration, and navigation. It leverages a fine-tuned large language model (LLM) trained on an internet text corpus
-                            for effective planning. We show that our baseline agent generalizes to rearranging unseen objects in unknown environments.
+                        <p>Our method, dubbed CLIPGraphs, encodes features from off-the-shelf vision-language models (specifically CLIP) using a graph neural network over the set of rooms and objects present in a scene.
+CLIPGraphs are multimodal - they may be queries using both vision and language queries, and map each query to a room of the house the object should belong to, in line with human preferences.
                         </p>
                     </div>
                 </div>
