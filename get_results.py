@@ -20,8 +20,7 @@ def main(image_model_type, lang_model_type, model_name, loss, split):
     relationships = np.load('all_obj_rel.npy', allow_pickle=True).item()
     model = GCN(input_dim, output_dim).to("cuda")
     # model = DataParallel(model)
-    model.load_state_dict(torch.load(
-        f'output/{model_name}/{loss}/prompt_const_15_k_40_20_k_20_global_best_val_model_{image_model_type_parse}_{lang_model_type_parse}.pth'))
+    model.load_state_dict(torch.load('model.pth'))
 
     color_dict = {
         "bathroom": "#6495ED",
@@ -72,8 +71,6 @@ def main(image_model_type, lang_model_type, model_name, loss, split):
         val_graph.add_node(name, name=name, features=np.reshape(
             features[category][object_name_parse][split][name].cpu().detach().numpy(), (input_dim,)), color=color)
 
-    import pdb
-    pdb.set_trace()
     self_edges = [(node, node) for node in val_graph.nodes()]
     val_graph.add_edges_from(self_edges)
 
@@ -108,7 +105,7 @@ def main(image_model_type, lang_model_type, model_name, loss, split):
     # room_embeddings = torch.stack([val_emb[_] for _ in range(len(rooms))])
 
     room_dict = np.load(
-        f'output_room_embeddings/{model_name}/{loss}/prompt_const_15_k_40_20_k_20_local_best_{image_model_type_parse}_{lang_model_type_parse}_room_embedding.npy', allow_pickle=True).item()
+        f'output_room_embeddings/global_best_{image_model_type_parse}_{lang_model_type_parse}_room_embedding.npy', allow_pickle=True).item()
 
     room_embeddings = []
     room_names = []
@@ -129,8 +126,8 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--image_model', type=str,
-                        default='clip_convnext_base')
-    parser.add_argument('--lang_model', type=str, default='clip_convnext_base')
+                        default='clip_ViT-H/14')
+    parser.add_argument('--lang_model', type=str, default='clip_ViT-H/14')
     parser.add_argument('--model', type=str, default='GCN')
     parser.add_argument('--loss', type=str, default='margin')
     parser.add_argument('--split', type=str, default='test')
