@@ -114,8 +114,6 @@ def main(image_model_type, lang_model_type, model_name, loss, split):
         room_names.append(name)
 
     room_embeddings = torch.stack(room_embeddings)
-    import pdb
-    pdb.set_trace()
     calculate_statistics(val_emb, room_embeddings, list(val_graph.nodes),
                          rooms, relationships)
     print(get_mAP(val_emb, room_embeddings, list(val_graph.nodes),
