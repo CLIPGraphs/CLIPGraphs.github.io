@@ -109,9 +109,11 @@ def calculate_statistics(obj_embeddings, room_embeddings, obj_names, room_names,
     hit = 0
     top_3_hit = 0
     top_5_hit = 0
+    op_dict = {}
     for i, obj_name in enumerate(list(indices_dict.keys())):
         sorted_indices = np.argsort(similarity_matrix_110[i])[::-1]
         sorted_room_names = [room_names[index] for index in sorted_indices]
+        op_dict[obj_name] = sorted_room_names
         assigned = False
         for room_ind, room in enumerate(room_names):
             # Regular expression to remove the image number from the obj name
@@ -135,6 +137,9 @@ def calculate_statistics(obj_embeddings, room_embeddings, obj_names, room_names,
         if true_room_name in sorted_room_names[:5]:
             top_5_hit += 1
 
+    with open('obj_room.txt', 'w') as file:
+        for key, value in op_dict.items():
+            file.write(f"{key}: {', '.join(value)}\n")
     total_mrr = 0  # Mean Reciprocal Rank
     for rank in ranks.values():
         total_mrr += 1/rank
