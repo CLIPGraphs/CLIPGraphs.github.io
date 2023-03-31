@@ -1,0 +1,17 @@
+bathroom
+bedroom
+childs_room
+closet
+corridor
+dining_room
+exercise_room
+garage
+home_office
+kitchen
+living_room
+lobby
+pantry_room
+playroom
+storage_room
+television_room
+utility_room
