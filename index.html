@@ -153,11 +153,8 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content">
                         <p>
-                           We propose a multimodal learning approach to infer human preferences of a <it>tidy room</it>.
-This is crucial for robotic scene rearrangement problems, where much of the prior work has centered around assuming rearrangement goals to be concretely specified.
-                        </p>
-                        <p>Our method, dubbed CLIPGraphs, encodes features from off-the-shelf vision-language models (specifically CLIP) using a graph neural network over the set of rooms and objects present in a scene.
-CLIPGraphs are multimodal - they may be queries using both vision and language queries, and map each query to a room of the house the object should belong to, in line with human preferences.
+                            This paper introduces a novel method for determining the best room to place an object in, for embodied scene rearrangement. While state-of-the-art approaches rely on large language models (LLMs) or reinforcement learned (RL) policies for this task, our approach, CLIPGraphs, efficiently combines commonsense domain knowledge, data-driven methods, and recent advances in multimodal learning. Specifically, it (a) encodes a knowledge graph of prior human preferences about the room location of different objects in home environments, (b) incorporates vision-language features to support multimodal queries based on images or text, and (c) uses a graph network to learn object-room affinities based on embeddings of the prior knowledge and the vision-language features.
+                            We demonstrate that our approach provides better estimates of the most appropriate location of objects from a benchmark set of object categories in comparison with state-of-the-art baselines
                         </p>
                     </div>
                 </div>
