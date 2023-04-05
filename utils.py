@@ -138,7 +138,6 @@ def calculate_statistics(obj_embeddings, room_embeddings, obj_names, room_names,
             top_5_hit += 1
 
     with open(filename, 'w') as file:
-        import pdb; pdb.set_trace()
         for key, value in op_dict.items():
             file.write(f"{key}: {', '.join(value)}\n")
     total_mrr = 0  # Mean Reciprocal Rank

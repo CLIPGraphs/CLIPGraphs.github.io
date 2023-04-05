@@ -22,13 +22,13 @@ def main(lang_model):
         obj_embs, room_embs, obj_names, room_names, relationships, filename=f'{lang_model_parse}_output.txt')
 
     with open(f'{lang_model_parse}_mAP.txt', 'w') as f:
-        f.write(str(mAP))
+        f.write("mAP: " + str(mAP))
         f.write('\n')
-        f.write(str(hit))
+        f.write("Hit Ratio: " + str(hit))
         f.write('\n')
-        f.write(str(top_3_hit))
+        f.write("Top 3 Hit Ratio: " + str(top_3_hit))
         f.write('\n')
-        f.write(str(top_5_hit))
+        f.write("Top 5 Hit Ratio: " + str(top_5_hit))
 
 
 if __name__ == '__main__':
