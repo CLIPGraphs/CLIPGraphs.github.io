@@ -115,7 +115,7 @@ def main(image_model_type, lang_model_type, model_name, loss, split):
 
     room_embeddings = torch.stack(room_embeddings)
     calculate_statistics(val_emb, room_embeddings, list(val_graph.nodes),
-                         rooms, relationships)
+                         rooms, relationships, filename='GCN_model_output.txt')
     print(get_mAP(val_emb, room_embeddings, list(val_graph.nodes),
                   rooms, relationships))
 

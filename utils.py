@@ -79,7 +79,7 @@ def get_mAP(obj_embeddings, room_embeddings, obj_names, room_names, relationship
     return mAP
 
 
-def calculate_statistics(obj_embeddings, room_embeddings, obj_names, room_names, relationships):
+def calculate_statistics(obj_embeddings, room_embeddings, obj_names, room_names, relationships, filename='obj_room.txt'):
     similarity_matrix = np.zeros((len(obj_embeddings), len(room_embeddings)))
     for i, obj_emb in enumerate(obj_embeddings):
         similarity_scores = torch.nn.functional.cosine_similarity(
@@ -137,7 +137,8 @@ def calculate_statistics(obj_embeddings, room_embeddings, obj_names, room_names,
         if true_room_name in sorted_room_names[:5]:
             top_5_hit += 1
 
-    with open('obj_room.txt', 'w') as file:
+    with open(filename, 'w') as file:
+        import pdb; pdb.set_trace()
         for key, value in op_dict.items():
             file.write(f"{key}: {', '.join(value)}\n")
     total_mrr = 0  # Mean Reciprocal Rank
