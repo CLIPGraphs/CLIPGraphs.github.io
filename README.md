@@ -23,11 +23,14 @@ This would produce 2 files,
 
 If you find CLIPGraphs useful for your work please cite:
 ```
-@misc{agrawal2023clipgraphs,
+@INPROCEEDINGS{agrawal2023clipgraphs,
             title={CLIPGraphs: Multimodal Graph Networks to Infer Object-Room Affinities, 
             author={Ayush Agrawal and Raghav Arora and Ahana Datta and Snehasis Banerjee and Brojeshwar Bhowmick and Krishna Murthy Jatavallabhula and Mohan Sridharan and Madhava Krishna}},
+            booktitle={2023 32nd IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)},
+            pages={2604-2609},
             year={2023},
             eprint={2306.01540},
             archivePrefix={arXiv},
-            primaryClass={cs.RO}}
+            primaryClass={cs.RO},
+            doi={10.1109/RO-MAN57019.2023.10309325}}
 ```
